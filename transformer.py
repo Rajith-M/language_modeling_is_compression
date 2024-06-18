@@ -1,18 +1,3 @@
-# Copyright 2024 DeepMind Technologies Limited
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#    http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# ==============================================================================
-
 """Transformer model."""
 
 import dataclasses
@@ -31,16 +16,16 @@ class TransformerConfig:
   # Vocabulary size.
   vocab_size: int
   # The dimension of the first embedding.
-  embedding_dim: int = 64
+  embedding_dim: int = 32  # Reduced from 64 to 32
   # The number of multi-head attention layers.
-  num_layers: int = 4
+  num_layers: int = 2  # Reduced from 4 to 2
   # The number of heads per layer.
-  num_heads: int = 8
+  num_heads: int = 4  # Reduced from 8 to 4
   # The parameter initialization scale for the embeddings.
   emb_init_scale: float = 0.02
   # How much larger the hidden layer of the feedforward network should be
   # compared to the `embedding_dim`.
-  widening_factor: int = 4
+  widening_factor: int = 2  # Reduced from 4 to 2
 
 
 class MultiHeadDotProductAttention(hk.Module):
